@@ -21,7 +21,9 @@ class Api::V1::Resolvers::CreateUser < GraphQL::Function
       last_name: args[:last_name],
       website: args[:website],
       email: args[:authProvider][:data][:email],
-      password: args[:authProvider][:data][:password]
+      password: args[:authProvider][:data][:password],
+      signed_count: 1,
+      last_sign_in: Time.now
     )
     if admins_length < 1
       user.add_role(:admin) 
