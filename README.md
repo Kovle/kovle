@@ -21,8 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 docker volume create --name kovle-postgres
-docker­-compose run --­­user "$(id ­-u):$(id -­g)" kovle rails db:reset
-docker­-compose run --­­user "$(id ­-u):$(id -­g)" kovle rails db:migrate
+docker volume create --name drkiq-redis
+docker­-compose run kovle rails db:reset
+docker­-compose run kovle rails db:migrate
 docker-compose up
 
 * ...

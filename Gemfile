@@ -25,6 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "rolify"
 gem "graphiql-rails"
 gem 'sidekiq'
+gem 'redis-rails'
 gem 'sinatra', github: 'sinatra', require: false, branch: 'master'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
