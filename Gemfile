@@ -13,8 +13,11 @@ gem 'uglifier'
 gem 'coffee-rails'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
+#gem 'unicorn'
+# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnTp8/1lalELG9HkHv3D0qfM/kIoDFiA3gHJbEv6AQSo0X9EOlEDUWW6b1T4b2YxGROWqffc9OSP5SSr5Wx1lICKH6UJdRv35676YxjGMpnIBL1Abuv+iD8NX20Xixu3PuExyg7gYaBcrXUrF0p6PJuCSIrnu6FnZoKBgv+tIpxQUUPBfHKuhzZ5pNp62j5zZE/DyoxP7//8qGn6pGd8Fxy9daixGjsluN/bNY21zOrbO0Lo+Xlt4Bk5e4FaEq70WFKYUCDeBKdjE6i5E6BkMQfSXTg+QA8GT/2344XF3lKgDWQdUUH37Dmu1UG3U56/OQzswwd+YZtYF46ns3F8W9 angelmendezz751@gmail.com
+
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+#gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
