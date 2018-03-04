@@ -14,7 +14,7 @@ gem 'coffee-rails'
 # gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'pg'
 # Use Puma as the app server
-# gem 'puma', '~> 3.7'
+#gem 'puma', '~> 3.7'
 gem 'unicorn'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
