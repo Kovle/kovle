@@ -1,0 +1,29 @@
+mysql:
+  image: mysql:5.5
+  enviroment:
+    MYSQL_USER: kovle
+    MYSQL_PASSWORD: 
+  ports:
+    - '5432:5432'
+  volumes:
+    - kovle-mysql: /var/lib/mysql/data
+
+kovle:
+  build: .
+  links:
+    - mysql
+  volumes: - .:/kovle
+  ports:
+    - '8000:8000'
+  env_file:
+    - .kovle.env
+
+sidekiq:
+  build: .
+  command: bundle exec sidekiq -C config/sidekiq.yml
+  links:
+    - mysql
+  volumes:
+    - .:/kovle
+  env_file:
+    - .kovle.env
