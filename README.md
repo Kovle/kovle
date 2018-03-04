@@ -20,7 +20,7 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-docker volume create --name kovle-mysql
+docker volume create --name kovle-postgres
 docker­-compose run --­­user "$(id ­-u):$(id -­g)" kovle rails db:reset
 docker­-compose run --­­user "$(id ­-u):$(id -­g)" kovle rails db:migrate
 docker-compose up
