@@ -1,18 +1,19 @@
-mysql:
-  image: mysql:5.5
+postgres:
+  image: postgres:9.3
   enviroment:
-    MYSQL_USER: kovle
-    MYSQL_PASSWORD: 
+    POSTGRES_USER: kovle
+    POSTGRES_PASSWORD: downcase.rb!
   ports:
     - '5432:5432'
   volumes:
-    - kovle-mysql: /var/lib/mysql/data
+    - kovle-postgres:/var/lib/postgresql/data
 
 kovle:
   build: .
   links:
-    - mysql
-  volumes: - .:/kovle
+    - postgres
+  volumes: 
+    - .:/kovle
   ports:
     - '8000:8000'
   env_file:
@@ -22,7 +23,7 @@ sidekiq:
   build: .
   command: bundle exec sidekiq -C config/sidekiq.yml
   links:
-    - mysql
+    - postgres
   volumes:
     - .:/kovle
   env_file:
