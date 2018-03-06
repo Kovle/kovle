@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20180302044247) do
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
     t.bigint "resource_id"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180302044247) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
-  create_table "tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tokens", force: :cascade do |t|
     t.string "token"
     t.datetime "expires_at"
     t.bigint "user_id"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180302044247) do
     t.index ["user_id"], name: "index_tokens_on_user_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
     t.string "email"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180302044247) do
     t.datetime "last_sign_in"
   end
 
-  create_table "users_roles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users_roles", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"

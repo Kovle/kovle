@@ -10,23 +10,25 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: pg
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  host: 127.0.0.1
+  database: kovle_production
   username: deploy
   password: downcase.rb!
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   # socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: kovle_development
+  # database: kovle_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: kovle_test
+  # database: kovle_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +51,3 @@ test:
 #
 production:
   <<: *default
-  database: kovle_production
-  username: kovle
-  password: <%= ENV['KOVLE_DATABASE_PASSWORD'] %>

@@ -2,7 +2,7 @@
 lock "~> 3.10.1"
 
 set :application, "kovle"
-set :repo_url, "https://github.com/Kovle/kovle"
+set :repo_url, "git://github.com/Kovle/kovle.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
