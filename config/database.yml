@@ -13,22 +13,20 @@ default: &default
   adapter: pg
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: kovle
+  username: deploy
   password: downcase.rb!
   # socket: /var/run/mysqld/mysqld.sock
 
 development:
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_development?') %>
-  # <<: *default
-  # database: kovle_development
+  <<: *default
+  database: kovle_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_test?') %>
-  # <<: *default
-  # database: kovle_test
+  <<: *default
+  database: kovle_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,8 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') %>
-  # <<: *default
-  # database: kovle_production
-  # username: kovle
-  # password: <%= ENV['KOVLE_DATABASE_PASSWORD'] %>
+  <<: *default
+  database: kovle_production
+  username: kovle
+  password: <%= ENV['KOVLE_DATABASE_PASSWORD'] %>
